@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This file *should* automatically deploy the frontend build artifacts to a specified
+# AWS Cloudfront Distribution
+
 export AWS_PAGER=""
 
 CURRENT_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
