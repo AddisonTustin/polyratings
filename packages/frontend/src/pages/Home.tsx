@@ -36,7 +36,7 @@ export function Home() {
             >
                 <div className="flex flex-col w-full h-2/3 lg:h-80 justify-center justify-items-center">
                     <h1 className="text-5xl md:text-9xl text-white text-center font-semibold drop-shadow-lg">
-                        Polyratings
+                    Cal Poly Ratings
                     </h1>
                     <div className="mt-6">
                         <SearchBar showOnlyInput />

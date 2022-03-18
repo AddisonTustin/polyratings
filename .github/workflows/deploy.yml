@@ -29,16 +29,27 @@ jobs:
         run: |
           npm run test
 
-      - name: Deploy Prod
-        if: github.ref == 'refs/heads/master'
+      - name: Deply to Cloudflare
+        if: github.reg == 'refs/heads/master'
         env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          POLYRATINGS_DISTRIBUTION_ID: ${{ secrets.POLYRATINGS_DISTRIBUTION_ID }}
+          POLYRATINGS_S3_URI: ${{ secrets.POLYRATINGS_S3_URI }}
         run: |
-          npm run deploy:prod
+          ./cloudfront-deploy.sh
 
-      - name: Deploy Beta
-        if: github.ref == 'refs/heads/beta'
-        env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-        run: |
-          npm run deploy:beta
+#      - name: Deploy Prod
+#        if: github.ref == 'refs/heads/master'
+#        env:
+#          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+#        run: |
+#          npm run deploy:prod
+#
+#      - name: Deploy Beta
+#        if: github.ref == 'refs/heads/beta'
+#        env:
+#          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+#        run: |
+#          npm run deploy:beta
