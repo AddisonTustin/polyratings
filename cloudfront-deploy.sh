@@ -17,10 +17,5 @@ export AWS_ACCESS_KEY_ID=$ROLE_ACCESS_KEY_ID
 export AWS_SECRET_ACCESS_KEY=$ROLE_SECRET_ACCESS_KEY
 export AWS_SESSION_TOKEN=$ROLE_SESSION_TOKEN
 
-cd packages/frontend/dist
-# For some reason building on GH adds `/polyratings-revamp` to the beginning of any link
-# So we need to get rid of those for Cloudfront
-grep -rl polyratings-revamp . | xargs sed -i 's/\/polyratings-revamp//g'
-
 aws s3 sync --delete ./ s3://$POLYRATINGS_S3_URI
 aws --output text cloudfront create-invalidation --distribution-id $POLYRATINGS_DISTRIBUTION_ID --paths "/*"

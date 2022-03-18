@@ -6,7 +6,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: process.env.GITHUB_WORKFLOW ? "/polyratings-revamp/" : "/",
+    base: "/",
     plugins: [react(), tsconfigPaths()],
     build: {
         sourcemap: true,
