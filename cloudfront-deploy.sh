@@ -13,10 +13,6 @@ ROLE_ACCESS_KEY_ID=$(cat sts-output | sed -n 's/\s*"AccessKeyId": "\([a-zA-Z0-9]
 ROLE_SECRET_ACCESS_KEY=$(cat sts-output | sed -n 's/\s\+"SecretAccessKey": "\(.\+\)",\s*/\1/p')
 ROLE_SESSION_TOKEN=$(cat sts-output | sed -n 's/\s\+"SessionToken": "\(.\+\)",\s*/\1/p')
 
-echo "AccessKeyId: $ROLE_ACCESS_KEY_ID"
-echo "SecretAccessKey: $ROLE_SECRET_ACCESS_KEY"
-echo "SessionToken: $ROLE_SESSION_TOKEN"
-
 export AWS_ACCESS_KEY_ID=$ROLE_ACCESS_KEY_ID
 export AWS_SECRET_ACCESS_KEY=$ROLE_SECRET_ACCESS_KEY
 export AWS_SESSION_TOKEN=$ROLE_SESSION_TOKEN
