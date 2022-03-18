@@ -23,9 +23,7 @@ jobs:
 
       - name: Build Packages
         run: |
-          cd packages/frontend/
           npm run build
-          cd ../../
 
 #      - name: Test Packages
 #        run: |
