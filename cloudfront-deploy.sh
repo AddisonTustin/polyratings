@@ -19,5 +19,5 @@ export AWS_SESSION_TOKEN=$ROLE_SESSION_TOKEN
 
 # aws s3 sync --delete ./packages/frontend/dist/ s3://$POLYRATINGS_S3_URI
 aws s3 sync packages/frontend/dist/ s3://$POLYRATINGS_S3_URI --exclude "*.js" --delete
-aws s3 sync packages/frontend/dist/ s3://$POLYRATINGS_S3_URI --exclude "*" --include "*.js" --content-type application/javascript
+aws s3 sync packages/frontend/dist/ s3://$POLYRATINGS_S3_URI --exclude "*" --include "*.js" --no-guess-mime-type --content-type application/javascript
 aws --output text cloudfront create-invalidation --distribution-id $POLYRATINGS_DISTRIBUTION_ID --paths "/*"
