@@ -25,11 +25,11 @@ jobs:
         run: |
           npm run build
 
-      - name: Test Packages
-        run: |
-          npm run test
+#      - name: Test Packages
+#        run: |
+#          npm run test
 
-      - name: Deply to Cloudflare
+      - name: Deply to CloudFront
         if: github.reg == 'refs/heads/master'
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
