@@ -37,6 +37,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           POLYRATINGS_DISTRIBUTION_ID: ${{ secrets.POLYRATINGS_DISTRIBUTION_ID }}
           POLYRATINGS_S3_URI: ${{ secrets.POLYRATINGS_S3_URI }}
+          ROLE_ARN: ${{ secrets.ROLE_ARN }}
         run: |
           ./cloudfront-deploy.sh
 
