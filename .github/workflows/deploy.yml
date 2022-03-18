@@ -28,6 +28,12 @@ jobs:
 #      - name: Test Packages
 #        run: |
 #          npm run test
+#
+      - name: Archive Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: "frontend-build-artifacts"
+          path: packages/frontend/dist
 
       - name: Deply to CloudFront
         if: github.ref == 'refs/heads/master'
